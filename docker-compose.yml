@@ -1,9 +1,10 @@
 version: '3'
 services:
   go-gin-container:
-    image: golang:latest
+    build:
+      context: .
+      dockerfile: ./web-server/Dockerfile
     container_name: go-gin-app
-    dockerfile: ./web-server/Dockerfile
     volumes:
       - ./go-app:/app
     ports:
@@ -12,9 +13,10 @@ services:
     command: go run main.go # Replace with your Go application entry point
 
   node-angular-container:
-    image: node:latest
+    build:
+      context: .                 # Use the current directory as the build context
+      dockerfile: ./web-client/Dockerfile
     container_name: node-angular-app
-    dockerfile: ./web-client/Dockerfile
     volumes:
       - ./angular-app:/app
     ports:

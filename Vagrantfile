@@ -86,5 +86,8 @@ Vagrant.configure("2") do |config|
 
     # Add your user to the Docker group to avoid using sudo for Docker commands
     sudo usermod -aG docker vagrant
+    
+    # Update the package list and install Git
+    sudo pacman -Syu --noconfirm git
   SHELL
 end
