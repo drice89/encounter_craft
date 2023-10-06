@@ -1,0 +1,24 @@
+version: '3'
+services:
+  go-gin-container:
+    image: golang:latest
+    container_name: go-gin-app
+    dockerfile: ./web-server/Dockerfile
+    volumes:
+      - ./go-app:/app
+    ports:
+      - "8080:8080"
+    working_dir: /app
+    command: go run main.go # Replace with your Go application entry point
+
+  node-angular-container:
+    image: node:latest
+    container_name: node-angular-app
+    dockerfile: ./web-client/Dockerfile
+    volumes:
+      - ./angular-app:/app
+    ports:
+      - "4200:4200"
+      - "49153:49153" # For live-reload (optional)
+    working_dir: /app
+    command: ng serve
