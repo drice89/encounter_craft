@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:8080"
     working_dir: /app
-    command: go run main.go # Replace with your Go application entry point
+    command: go run ./web-server/app/main.go # Replace with your Go application entry point
 
   node-angular-container:
     build:

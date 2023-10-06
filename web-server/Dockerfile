@@ -5,7 +5,7 @@ FROM golang:latest
 WORKDIR /app
 
 # Install Gin using go get
-RUN go get -u github.com/gin-gonic/gin
+# RUN go install github.com/gin-gonic/gin@latest
 
 # Copy your Go application code to the container
 COPY . .
